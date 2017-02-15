@@ -1,4 +1,4 @@
-(* 
+(*
 			      CS51 Lab 1
 		     Basic Functional Programming
 			     Spring 2017
@@ -121,7 +121,7 @@ like.
             -       3
            /
           /
-         5    
+         5
 *)
 
 (*====================================================================
@@ -202,7 +202,7 @@ let rec sum (lst : int list) : int =
     match lst with
     |    [] -> 0
     |    hd::tl -> hd + sum tl;;
-  
+
 (*
 ......................................................................
 Exercise 8: Define a recursive function that returns the maximum
@@ -218,11 +218,11 @@ let rec max_list_inner (lstr : int list) (high : int) : int =
     |    [] -> high
     |    hd::tl -> max_list_inner tl (if hd > high then hd else high);;
 
-let max_list (lst : int list) : int = 
+let max_list (lst : int list) : int =
     match lst with
     |    [] -> raise (Invalid_argument "List must contain at least 1 int.")
-    |    hd::tl -> max_list_inner tl hd ;;     
-  
+    |    hd::tl -> max_list_inner tl hd ;;
+
 
 (*
 ......................................................................
@@ -276,7 +276,7 @@ let rec prods (lst : (int * int) list) : int list =
   | (x, y) :: tail -> (x * y) :: (prods tail) ;;
 
 let dotprod (a : int list) (b : int list) : int =
-    sum (prods (zip a b));;    
+    sum (prods (zip a b));;
 
 (*====================================================================
 Part 3: High-order functional programming with map, filter, and fold
@@ -325,7 +325,7 @@ list:
 
     let double : int list -> int list =
       map (( * ) 2) ;;
-    
+
 END IMPORTANT NOTES
 
 ......................................................................
@@ -335,8 +335,8 @@ Exercise 11: Reimplement sum using fold_left, naming it sum_ho (for
 *)
 
 let sum_ho : int list -> int =
-    fold_left (+) 0 ;; 
-    
+    fold_left (+) 0 ;;
+
 
 (*
 ......................................................................
@@ -344,9 +344,9 @@ Exercise 12: Reimplement prods using map.
 ......................................................................
 *)
 
-let prods_ho : (int * int) list -> int list = 
+let prods_ho : (int * int) list -> int list =
     map (fun (x, y) -> x * y);;
-  
+
 (*
 ......................................................................
 Exercise 13: The OCaml List module provides, in addition to the map,
@@ -366,7 +366,7 @@ let zip_ho : int list -> int list -> (int * int) list =
 Exercise 14: Define a function evens, using these higher-order
 functional programming techniques, that returns a list of all of the
 even numbers in its argument list.
-...................................................................... 
+......................................................................
 *)
 
 let evens : int list -> int list =
